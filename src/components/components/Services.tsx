@@ -54,7 +54,7 @@ export const services = [
 
 // Badge Component
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", 
   {
     variants: {
       variant: {
@@ -73,7 +73,7 @@ const badgeVariants = cva(
 );
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: keyof typeof badgeVariants.variants.variant;
+  variant?: 'blue' | 'green' | 'purple' | 'orange' | 'pink' | 'red'; // Adjusted this line to match the badgeVariants
 }
 
 function Badge({ className, variant = "blue", ...props }: BadgeProps) {
@@ -81,6 +81,26 @@ function Badge({ className, variant = "blue", ...props }: BadgeProps) {
     <div className={cn(badgeVariants({ variant }), className)} {...props} />
   );
 }
+
+// Custom Button Component with 'variant' prop
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'ghost' | 'solid' | 'outline'; // Define variants as needed
+}
+
+const Button = ({ variant = 'ghost', className, children, ...props }: ButtonProps) => {
+  return (
+    <button
+      className={cn(
+        "transition-colors duration-300", // add the base styles
+        variant === 'ghost' ? "bg-transparent text-gray-600" : "bg-blue-600 text-white", // handle variant logic
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
 
 // Animation Variants
 const animations = {
@@ -162,7 +182,7 @@ export default function Services() {
                     {service.features.map((feature, featureIndex) => (
                       <Badge
                         key={featureIndex}
-                        variant={service.color}
+                        variant={service.color} // Pass the variant from the service
                         className="mr-2"
                       >
                         {feature}
@@ -171,7 +191,7 @@ export default function Services() {
                   </div>
 
                   {/* Action Button */}
-                  <button
+                  <Button
                     variant="ghost"
                     className={cn(
                       "mt-6 w-full justify-center transition-colors duration-300",
@@ -179,7 +199,7 @@ export default function Services() {
                     )}
                   >
                     Learn More
-                  </button>
+                  </Button>
                 </div>
               </motion.div>
             );
