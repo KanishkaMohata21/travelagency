@@ -1,9 +1,3 @@
-export interface Service {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-}
-
 export interface Destination {
   title: string;
   image: string;
