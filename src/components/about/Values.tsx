@@ -1,47 +1,62 @@
-import React from 'react';
-import { Container } from '../common/Container';
-import { Heart, Shield, Users, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Heart, Shield, Globe, Users } from 'lucide-react';
 
 const values = [
   {
     icon: Heart,
     title: 'Passion',
-    description: 'We love what we do and put our heart into every journey we plan.'
+    description: 'We are passionate about creating exceptional travel experiences',
+    color: 'pink'
   },
   {
     icon: Shield,
     title: 'Trust',
-    description: 'Your safety and satisfaction are our top priorities.'
-  },
-  {
-    icon: Users,
-    title: 'Community',
-    description: 'We build lasting relationships with our travelers and partners.'
+    description: 'Building lasting relationships through reliability and transparency',
+    color: 'blue'
   },
   {
     icon: Globe,
     title: 'Sustainability',
-    description: 'Committed to responsible tourism and environmental protection.'
-  }
+    description: 'Committed to responsible and sustainable tourism practices',
+    color: 'green'
+  },
+  {
+    icon: Users,
+    title: 'Community',
+    description: 'Supporting local communities and fostering cultural exchange',
+    color: 'purple'
+  },
 ];
 
 export const Values = () => {
   return (
-    <Container className="py-20">
-      <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {values.map(({ icon: Icon, title, description }, index) => (
-          <div
-            key={title}
-            className="text-center p-6 rounded-lg bg-white shadow-lg"
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <Icon className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
-          </div>
-        ))}
+    <div className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-12"
+        >
+          Our Core Values
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {values.map((value, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className={`text-center p-6 rounded-lg bg-white shadow-lg border-t-4 border-${value.color}-600`}
+            >
+              <value.icon className={`w-12 h-12 mx-auto text-${value.color}-600 mb-4`} />
+              <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+              <p className="text-gray-600">{value.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </Container>
+    </div>
   );
 };

@@ -1,54 +1,60 @@
-import React from 'react';
-import { Container } from '../common/Container';
-import { MessageSquare, Calendar, Plane, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Search, Calendar, Plane, Heart } from 'lucide-react';
 
 const steps = [
   {
-    icon: MessageSquare,
-    title: 'Consultation',
-    description: 'We discuss your travel dreams and preferences'
+    icon: Search,
+    title: 'Discover',
+    description: 'Browse our curated selection of destinations and experiences',
   },
   {
     icon: Calendar,
-    title: 'Planning',
-    description: 'We craft your perfect itinerary'
+    title: 'Plan',
+    description: 'Work with our experts to create your perfect itinerary',
   },
   {
     icon: Plane,
-    title: 'Booking',
-    description: 'We handle all reservations and logistics'
+    title: 'Travel',
+    description: 'Enjoy your journey with our 24/7 travel support',
   },
   {
     icon: Heart,
-    title: 'Experience',
-    description: 'You enjoy your dream vacation'
-  }
+    title: 'Share',
+    description: 'Share your memories and inspire others to explore',
+  },
 ];
 
 export const Process = () => {
   return (
-    <Container className="py-20">
-      <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {steps.map(({ icon: Icon, title, description }, index) => (
-          <div
-            key={title}
-            className="relative "
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center">
-                <Icon className="w-8 h-8 text-blue-600" />
+    <div className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-12"
+        >
+          How It Works
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="text-center"
+            >
+              <div className="relative mb-6">
+                <step.icon className="w-12 h-12 mx-auto text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{title}</h3>
-              <p className="text-gray-600">{description}</p>
-            </div>
-            {index < steps.length - 1 && (
-              <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-blue-200 -translate-y-1/2 transform" />
-            )}
-          </div>
-        ))}
+              <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+              <p className="text-gray-600">{step.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </Container>
+    </div>
   );
 };

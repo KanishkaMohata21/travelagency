@@ -1,7 +1,7 @@
 // TestimonialSection.js
 
 import { testimonials } from "@/constants/testimonials";
-import { AnimatedTestimonials } from "../ui/animated-testimonials";
+import AnimatedTestimonials from "../ui/animated-testimonials";
 
 
 const TestimonialSection = () => {
