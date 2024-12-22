@@ -1,19 +1,25 @@
-import Destinations from "@/components/components/Destinations";
-import Footer from "@/components/components/Footer";
-import Hero from "@/components/components/Hero";
-import Navbar from "@/components/components/Navbar";
-import Services from "@/components/components/Services";
-import TestimonialSection from "@/components/components/testimonials";
+import { FAQSection } from "@/components/contact/FAQSection";
+import { DealsCarousel } from "@/components/home/deals/DealsCarousel";
+import Destinations from "@/components/home/Destinations";
+import { PhotoGallery } from "@/components/home/gallery/PhotoGallery";
+import { TravelGuides } from "@/components/home/guides/TravelGuides";
+import Hero from "@/components/home/Hero";
+import Services from "@/components/home/Services";
+import TestimonialSection from "@/components/home/testimonials";
 
 export default function Home() {
   return (
     <div className="">
-      <Navbar />
       <Hero />
       <Services />
       <Destinations />
       <TestimonialSection />
-      <Footer />
+      <DealsCarousel />
+      <TravelGuides />
+      <PhotoGallery />
+      <div className="bg-gray-50 py-20">
+        <FAQSection />
+      </div>
     </div>
   );
 }

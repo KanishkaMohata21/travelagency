@@ -1,46 +1,46 @@
-import { Code2, Fingerprint, LineChart, Lock, Rocket, Shield } from 'lucide-react';
+import { MapPin, Plane, Hotel, Camera, Globe, Calendar } from 'lucide-react';
 
 export const services = [
   {
-    title: 'Custom Development',
-    description: 'Tailored solutions built with cutting-edge technologies to meet your specific business needs.',
-    icon: Rocket,
+    title: 'Corporate Travel Packages',
+    description: 'Exclusive corporate fares designed for seamless business travel.',
+    icon: Globe,
     color: 'blue',
-    features: ['Modern Tech Stack', 'Scalable Architecture', 'Performance Optimized']
+    features: ['Tailored Itineraries', 'Exclusive Corporate Rates', 'Flexible Rescheduling']
   },
   {
-    title: 'Security Solutions',
-    description: 'Enterprise-grade security implementations to protect your valuable digital assets.',
-    icon: Shield,
+    title: 'Air Travel Deals',
+    description: 'Corporate fares and exclusive coupon deals for flights worldwide.',
+    icon: Plane,
     color: 'green',
-    features: ['End-to-end Encryption', 'Penetration Testing', 'Security Audits']
+    features: ['Global Destinations', 'Discounted Corporate Rates', '24/7 Assistance']
   },
   {
-    title: 'Data Analytics',
-    description: 'Transform your raw data into actionable insights with advanced analytics solutions.',
-    icon: LineChart,
+    title: 'Hotel Bookings',
+    description: 'B2B rates for premium accommodations that suit every budget.',
+    icon: Hotel,
     color: 'purple',
-    features: ['Real-time Analytics', 'Custom Dashboards', 'Predictive Models']
+    features: ['Wide Range of Options', 'Verified Listings', 'Special B2B Discounts']
   },
   {
-    title: 'Identity Management',
-    description: 'Robust authentication and authorization systems for seamless user management.',
-    icon: Fingerprint,
+    title: 'Train Tickets',
+    description: 'Effortless confirmed and Tatkal bookings for hassle-free train travel.',
+    icon: MapPin,
     color: 'orange',
-    features: ['SSO Integration', 'Role-based Access', 'Multi-factor Auth']
+    features: ['Instant Confirmation', 'Tatkal Booking', 'Nationwide Coverage']
   },
   {
-    title: 'API Development',
-    description: 'Design and implementation of scalable APIs that power your applications.',
-    icon: Code2,
+    title: 'Bus Tickets',
+    description: 'Nationwide bus booking services for intercity and local travel.',
+    icon: Camera,
     color: 'pink',
-    features: ['RESTful Services', 'GraphQL', 'API Documentation']
+    features: ['Comfortable Rides', 'Budget-friendly Options', 'Real-time Availability']
   },
   {
-    title: 'Cybersecurity',
-    description: 'Comprehensive security solutions to protect your digital infrastructure.',
-    icon: Lock,
+    title: 'Visa Processing',
+    description: 'Hassle-free visa applications for all your travel needs.',
+    icon: Calendar,
     color: 'red',
-    features: ['Threat Detection', 'Vulnerability Assessment', 'Security Training']
+    features: ['Simplified Documentation', 'Quick Approvals', 'Comprehensive Support']
   }
 ];
